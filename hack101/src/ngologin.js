@@ -20,7 +20,7 @@ const Login = () => {
         }
         else {
             const { email, password } = user;
-            res = await fetch('/login', {
+            res = await fetch('/api/auth/login', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"

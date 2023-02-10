@@ -10,14 +10,14 @@ const Usersignup = () => {
         let res;
         e.preventDefault();
         const { name, email,phone,password } = user;
-        res = await fetch('/create', {
+        res = await fetch('/api/auth/create', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
                 'Accept': 'application/json'
             },
             body: JSON.stringify(
-                { name,email,phone, password }
+                { name,email,phoneNumber:phone, password }
             )
         })
 

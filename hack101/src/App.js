@@ -10,7 +10,7 @@ import Usersignup from './usersignup'
 import Login from './ngologin'
 import Homepage from './homepage'
 import Navbar from './navbar'
-import React from 'react';
+import Userdata from './userdata'
 
 function App() {
 
@@ -20,11 +20,13 @@ function App() {
     <>
         <Router>
         <Navbar/>
+        <Userdata />
             <Routes>
                 
             <Route path='/' element={<Homepage />}></Route>
             <Route exact path='/usersignup' element={<Usersignup />}></Route>
             <Route exact path='/login' element={<Login />}></Route>
+            <Route exact path='/userdata' element={<Userdata />}></Route>
             </Routes>
         </Router>
 

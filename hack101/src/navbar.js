@@ -18,7 +18,8 @@ const Navbar = () => {
         <input className="form-control me-2 " type="search" placeholder="Search" aria-label="Search" />
         <button className="btn btn-outline-success mx-2 " type="submit">Search</button>
       </form>
-      <button className="btn btn-primary mx-2" type="submit">Login</button>
+      <Link to="/login">
+      <button className="btn btn-primary mx-2" type="submit" >Login</button></Link>
       <button className="btn  btn-primary mx-2" type="submit">Signup</button>
     </div>
   </div>

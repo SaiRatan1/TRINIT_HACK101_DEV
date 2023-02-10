@@ -1,5 +1,4 @@
 
-
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
 
 * {
@@ -7,6 +6,7 @@
     padding: 0; */
     /* background-color: #e1ebf9; */
     font-family: 'Balsamiq Sans', cursive;
+    box-sizing: border-box;
 }
 
 .container {
@@ -66,6 +66,10 @@
 }
 
 .but1 , .but2 {
+    
+    all: initial;
+    text-align: center;
+    font-family: 'Balsamiq Sans', cursive;
     width: 200px;
     height: 40px;
     margin-top: 25px;
@@ -123,12 +127,53 @@ a:link{
     font-size: x-large;
 }
 
-.omc{
-    margin-top: 40px;
-    margin-bottom: 30px;
+.userdata{
+    display: flex;
+    height: 70vh;
+    width: 40vw;
+    /* border: 2px solid black; */
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    /* margin-left: 390px; */
+    margin-top: 30px;
+    box-shadow: 10px 10px 45px rgb(136, 134, 134);
+    border-radius: 10px;
+}
+.profile{
+    height: 150px;
+    width: 150px;
+    /* border: 2px solid red; */
+    /* position: relative; */
+    top: 60px;
+    left: 300px;
+    object-fit: cover;
+    margin-bottom: 138px;
+    padding-left: 70px;
 }
 
-.box{
-    text-align: center;
-    /* background-color: aqua; */
+.data{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 30px;
+    gap: 20px;
+    text-align: start;
 }
+
+
+.d1, .d2 , .d3{
+    width: 200px;
+}
+
+.pofrecent{
+
+    margin-top: 20px;
+}
+
+
+  .borderbot{
+    border-bottom: 1px solid black;
+  }
