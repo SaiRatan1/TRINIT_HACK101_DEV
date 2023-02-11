@@ -1,12 +1,12 @@
 import React from 'react'
-import { useState,useContext,useEffect } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 
 import CredContext from './context/Credentials/credContext'
 
 const Login = () => {
     const credentials = useContext(CredContext);
-    const [cred,setCred] = useState({})
+    // const [cred,setCred] = useState({})
 
     const navigate = useNavigate();
     const [user, setUser] = useState({ email: "", password: "" });
@@ -38,26 +38,23 @@ const Login = () => {
             alert('Invalid Credentials')
         }
         else {
-            setCred(data);
+            // setCred(data);
             // console.log(credentials.credentials,'credentials from login component')
             // window.localStorage.setItem('credentials',credentials.credentials);
             // console.log(window.localStorage.getItem('credentials'), "localstorage from login component ")
             // console.log(user.email, "this is from function")
             credentials.setCredentials(data);
-            window.localStorage.setItem('credentials',JSON.stringify(data))
+            window.localStorage.setItem('credentials', JSON.stringify(data))
             navigate('/');
         }
     }
 
-
-
-    useEffect(()=>{
+    useEffect(() => {
         const data = JSON.parse(window.localStorage.getItem('credentials'))
-            credentials.setCredentials(data);
+        credentials.setCredentials(data);
+    }, [])
 
-    },[])
-
-
+[credentials.credentials])
 
     // useEffect(()=>{
     //     window.localStorage.setItem('credentials',JSON.stringify(credentials.credentials)) // try using json.stringify

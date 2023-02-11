@@ -1,23 +1,21 @@
 import React from 'react';
 import './App.css';
 import {
-    BrowserRouter as Router,
-    Routes,
-    Route
+  BrowserRouter as Router,
+  Routes,
+  Route
 } from "react-router-dom";
-
 import Usersignup from './usersignup'
 import Ngosignup from './ngosignup'
 import Login from './ngologin'
 import Homepage from './homepage'
 import Navbar from './navbar'
 import Userdata from './userdata'
-import Ngodata from './ngodata'
-import CredState from './context/Credentials/credState';
+// import Ngodata from './ngodata'
 
 function App() {
-    window.localStorage.removeItem('credentials')
-    console.log('App component is reloading');
+  window.localStorage.removeItem('credentials')
+  console.log('App component is reloading');
 
   return (
     <>
