@@ -22,7 +22,8 @@ function Ele1(props) {
 }
 
 export default function Ngoprofile() {
-    let [obj1, setobj1] = useState(<Ele1 />);
+    const [campdata,setCampdata] = useState([])
+    let [obj1, setobj1] = useState([]);
     const location = useLocation()
     const id = location.pathname.slice(7)
     // console.log(id)
@@ -36,36 +37,44 @@ export default function Ngoprofile() {
         setData(data);
     }
 
+    const getcampaigns = async()=>{
+        const result = await fetch(`http://localhost:4000/api/ngo/${id}/campaigns`,{
+            method:"GET",
+            headers:{
+                'content-type':'Application/json'
+            }
+        })
+        const cres = await result.json()
+        setCampdata(cres);
+        setobj1(campdata)
+    }
+
+
+
     useEffect(()=>{
         fetchdata()
+        getcampaigns()
     },[])
 
 
     let fun1 = () => {
-        fetch('/send_campaign_data', {
+        fetch(`http://localhost:4000/api/campaign/create`, {
             method: "POST",
             body: JSON.stringify({
-                form1: document.getElementById('jumb1').value,
-                form2: document.getElementById('jumb2').value,
-                form3: document.getElementById('jumb3').value,
-                form4: document.getElementById('jumb4').value,
-                form5: document.getElementById('jumb5').value
+                name: document.getElementById('jumb1').value,
+                description: document.getElementById('jumb2').value,
+                endingTime: document.getElementById('jumb3').value,
+                reqFund: document.getElementById('jumb4').value,
+                paymentLink: document.getElementById('jumb5').value
             }),
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
             }
         }).then(data => data.json()).then(data => {
-            let rows = data;
-            let arr = [];
-            for (let i = 0; i < arr.length; i++) {
-                arr.push(<Ele1 nam={rows[i].name} endf={rows[i].endingtime} reqf={rows[i].requiredfund} desc={rows[i].description} />);
-            }
-            setobj1(arr);
+            setCampdata([...campdata,data.campaign])
+            setobj1(campdata);
         });
     }
-
-
-
 
     return (
         <>
@@ -144,12 +153,10 @@ export default function Ngoprofile() {
                                 <h5 className='text-white p-1'>CAMPAIGN DETAILS:</h5>
                                 <div className="container bg-white">
                                     <div id='detailscam'>
-                                        {obj1}
-                                        {obj1}
-                                        {obj1}
-                                        {obj1}
-                                        {obj1}
-                                        {obj1}  
+                                        {obj1.map((rows)=>{
+                                            return <Ele1 nam={rows.name} endf={rows.endingTime} reqf={rows.reqFund} desc={rows.description} />
+                                        })}
+                                         
                                     </div>
                                 </div>
                             </div>

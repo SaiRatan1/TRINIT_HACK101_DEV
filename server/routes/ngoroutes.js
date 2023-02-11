@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
 const NGO = require('../Models/NGOSchema')
+const Campaign = require('../Models/CampaignSchema')
 const bcrypt = require('bcrypt')
 mongoose.set('strictQuery', true)
 
@@ -47,5 +48,20 @@ router.get('/:id',
         }
     }
 )
+
+
+router.get('/:id/campaigns',
+    async (req, res) => {
+        try {
+            const campaigns = await Campaign.find({ hostedBy: req.params.id })
+            return res.json(campaigns)
+        } catch (error) {
+            console.error(error);
+            res.status(500).send("Internal Server Error");
+        }
+    }
+)
+
+
 
 module.exports = router;
