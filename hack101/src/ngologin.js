@@ -54,9 +54,11 @@ const Login = () => {
         credentials.setCredentials(data);
     }, [])
 
-    useEffect(() => {
-        window.localStorage.setItem('credentials', JSON.stringify(credentials.credentials)) // try using json.stringify
-    }, [credentials.credentials])
+[credentials.credentials])
+
+    // useEffect(()=>{
+    //     window.localStorage.setItem('credentials',JSON.stringify(credentials.credentials)) // try using json.stringify
+    // },[credentials.credentials])
 
 
 
