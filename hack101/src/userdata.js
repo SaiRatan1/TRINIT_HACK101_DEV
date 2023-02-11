@@ -11,28 +11,28 @@ const Userdata = () => {
     const id = location.pathname.slice(10)
 
 
-    const [userdata,setUserdata] = useState({})
+    const [userdata, setUserdata] = useState({})
 
 
-    const details =async  ()=>{
+    const details = async () => {
         // console.log(id)
         // console.log(location.pathname)
 
-        const res = await fetch(`http://localhost:4000/api/auth/user/${id}`,{
-            method:"GET"
+        const res = await fetch(`http://localhost:4000/api/auth/user/${id}`, {
+            method: "GET",
         })
         const data = await res.json();
-        if(!data || res.status===500){
+        if (!data || res.status === 500) {
             console.log('couldnt get ngo data')
         }
-        else{
+        else {
             setUserdata(data);
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         details();
-    },[])
+    }, [])
 
 
     return (
@@ -47,7 +47,7 @@ const Userdata = () => {
                     <div className="d3"><p>Phone: </p><label className="borderbot" htmlFor="">{userdata.phoneNumber}</label></div>
                     <div className="d4"><p>Preffered NGO: </p><label className="borderbot" htmlFor="">{userdata.preferredNGO}</label></div>
                     <div className="d4"><p>Recent Activity:</p>
-                     <p className='pofrecent'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea optio velit aliquid dolor aliquam illo quis numquam eligendi sed cumque.</p></div>
+                        <p className='pofrecent'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea optio velit aliquid dolor aliquam illo quis numquam eligendi sed cumque.</p></div>
                 </div>
 
             </div>

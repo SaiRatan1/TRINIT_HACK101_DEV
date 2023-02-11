@@ -23,7 +23,7 @@ router.post('/create',
                 }
             }
             const authtoken = jwt.sign(data, JWT_KEY, { expiresIn: maxAge });
-            res.cookie('jwt', authtoken, { httpOnly: true, maxAge: maxAge * 1000 })
+            res.cookie('jwt', authtoken, { httpOnly: true, maxAge: maxAge * 1000, secure: false })
             res.json({ authtoken, success: true })
         } catch (error) {
             console.error(error.message);
@@ -69,7 +69,7 @@ router.post('/login',
                 }
             }
             const authtoken = jwt.sign(data, JWT_KEY);
-            res.cookie('jwt', authtoken, { httpOnly: true, maxAge: maxAge * 1000 })
+            res.cookie('jwt', authtoken, { httpOnly: true, maxAge: maxAge * 1000, secure: false })
             res.json({ success, userId: user.id, accountType: 'user' })
 
         } catch (error) {
@@ -80,12 +80,10 @@ router.post('/login',
 )
 
 // FETCH USER DATA WITH ID
-router.get('/user/:id', authenticate,
+router.get('/user/:id',
     async (req, res) => {
-
         try {
-    console.log(req.cookies,' from routes')
-
+            console.log(req.cookies, ' from routes')
             const { id } = req.params
             const user = await User.findById(id).select('-password');
             if (!user) {
