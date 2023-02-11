@@ -2,10 +2,10 @@ import React from "react";
 import CredContext from "./credContext";
 import { useState } from "react";
 const CredState = (props) =>{
-    const [user,setUser] = useState('')
+    const [credentials,setCredentials] = useState({notloggedin:'notloggedin'})
     
     return(
-        <CredContext.Provider value={{user,setUser}}>
+        <CredContext.Provider value={{credentials,setCredentials}}>
             {props.children}
         </CredContext.Provider>
     )
