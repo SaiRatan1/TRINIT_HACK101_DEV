@@ -20,6 +20,10 @@ const userSchema = new Schema({
     paymentUPI: {
         type: String,
     },
+    preferredNGO: {
+        type: String,
+        required: true
+    },
     groups: [{
         type: Schema.Types.ObjectId,
         ref: 'Group'

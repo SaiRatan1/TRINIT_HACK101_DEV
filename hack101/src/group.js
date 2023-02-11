@@ -1,25 +1,31 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import './chat.css'
+import { useLocation } from 'react-router-dom';
+import CredContext from './context/Credentials/credContext'
 
+class ChatSystem extends React.Component {
 
-export default class Group extends React.Component {
     constructor(props){
+
         super(props);
         this.state ={
             obj1: <br/>,
             msg:1
         }
     }
-    
+     
     fun_sender = () => {
         let var1 = document.getElementById('chatinput');
         let str1 = var1.value;
-        var1.value = '';
-        let num = this.state.msg;
-        let arr = [this.state.obj1,<div className='chatarealeft' key={`${num}`}>{str1}</div>];
-        this.setState({obj1:arr,msg:num+1})
-        fetch(`/formchatarea?ider=${this.props.author}&msg=${str1}`);
+        if(str1!==''){
+            var1.value = '';
+            let num = this.state.msg;
+            let arr = [this.state.obj1,<div className='chatarealeft' key={`${num}`}>{str1}</div>];
+            this.setState({obj1:arr,msg:num+1})
+            fetch(`/formchatarea?ider=${this.props.groupid}&msg=${str1}`);
+        }
+
     }
     render() {
         return (
@@ -59,7 +65,7 @@ export default class Group extends React.Component {
     componentDidMount(){
         if(this.state.msg==1){
             let rows = [];
-            fetch(`/for_init_chat?author=${this.props.author}`).then(data => data.json()).then(data => {
+            fetch(`/for_init_chat?author=${this.props.groupid}`).then(data => data.json()).then(data => {
                 rows = data;
                 let arr1 = [];
                 let num1 = this.state.msg;
@@ -97,4 +103,13 @@ export default class Group extends React.Component {
             setTimeout(()=>fun1(this),2000);
         }
     }
+}
+
+export default function Group(){
+    const credentials = useContext(CredContext);
+    console.log(credentials.credentials);
+
+    const match = useLocation();
+    console.log(match.pathname)
+    return <ChatSystem/>
 }

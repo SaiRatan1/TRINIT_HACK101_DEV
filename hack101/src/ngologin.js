@@ -6,6 +6,7 @@ import CredContext from './context/Credentials/credContext'
 
 const Login = () => {
     const credentials = useContext(CredContext);
+    console.log(credentials.credentials)
     // const [cred,setCred] = useState({})
 
     const navigate = useNavigate();

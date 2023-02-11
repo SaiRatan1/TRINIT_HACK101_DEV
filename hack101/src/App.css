@@ -83,7 +83,7 @@
     margin-right: 15px;
 }
 
-.name ,.email,.phone ,.errorf ,.invalid{
+.name ,.email,.phone ,.prefngo,.errorf ,.invalid{
     margin-top: 10px;
     font-weight: bold;
     width: 340px;
@@ -129,8 +129,8 @@ a:link{
 
 .userdata{
     display: flex;
-    height: 80vh;
-    width: 40vw;
+    /* height: 80vh;
+    width: 40vw; */
     /* border: 2px solid black; */
     text-align: center;
     align-items: center;
@@ -138,7 +138,7 @@ a:link{
     margin: auto;
     /* margin-left: 390px; */
     margin-top: 30px;
-    box-shadow: 10px 10px 45px rgb(136, 134, 134);
+    /* box-shadow: 10px 10px 45px rgb(136, 134, 134); */
     border-radius: 10px;
 }
 .profile{
@@ -154,21 +154,19 @@ a:link{
 }
 
 .data{
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     flex-direction: column;
     margin-left: 30px;
     gap: 20px;
     text-align: start;
     flex-wrap: wrap;
-
+    padding-top: 50px;
+    width: 500px;
+    padding-left: 30px;
 }
 
-
-.d1, .d2 , .d3,.d4{
-    width: 200px;
-}
 
 /* .pofrecent{
 } */
@@ -275,3 +273,6 @@ h1{
 }
 
 
+.apper{
+    width: 30%;
+}
