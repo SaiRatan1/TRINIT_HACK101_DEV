@@ -26,6 +26,7 @@ app.use('/api/auth', require('./routes/userroutes'))
 app.use('/api/group', require('./routes/groupRoutes'))
 app.use('/api/chat', require('./routes/chatRoutes'))
 app.use('/api/search', require('./routes/searchRoutes'))
+app.use('/api/campaign', require('./routes/campaignRoutes'))
 
 app.listen(4000, () => {
     console.log('Server started on port 4000')

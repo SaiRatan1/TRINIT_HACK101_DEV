@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {useEffect} from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import Profile from './profile.jpeg';
 import CredContext from './context/Credentials/credContext'
@@ -13,26 +13,26 @@ const Ngodata = () => {
     // const id = query.get('id');
 
     const location = useLocation();
-    // const query = new URLSearchParams(location.search);
+
     const id = location.pathname.slice(4)
 
-    const [ngodata,setNgodata] = useState({})
-    const details =async  ()=>{
-        const res = await fetch(`http://localhost:4000/api/ngo/${id}`,{
-            method:"GET"
+    const [ngodata, setNgodata] = useState({})
+    const details = async () => {
+        const res = await fetch(`http://localhost:4000/api/ngo/${id}`, {
+            method: "GET"
         })
         const data = await res.json();
-        if(!data || res.status===500){
+        if (!data || res.status === 500) {
             console.log('couldnt get ngo data')
         }
-        else{
+        else {
             setNgodata(data);
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         details();
-    },[])
+    }, [])
 
     return (
         <>
@@ -46,15 +46,15 @@ const Ngodata = () => {
                         <div className="d2"><p>Email:</p><label className="borderbot" htmlFor="">{ngodata.email}</label></div>
 
                         <div className="d3"><p>Phone:</p><label className="borderbot" htmlFor="">{ngodata.phoneNumber}</label></div>
-                        {ngodata.socialLinks &&  ngodata.socialLinks.map((e,index)=>{
-                            return <><div className="d5"><p>Social Media link {index+1}: </p><label className="borderbot" htmlFor="">e</label></div></>
+                        {ngodata.socialLinks && ngodata.socialLinks.map((e, index) => {
+                            return <><div className="d5"><p>Social Media link {index + 1}: </p><label className="borderbot" htmlFor="">e</label></div></>
                         })}
                         {/* <div className="d4"><p>Social Media link1: </p><label className="borderbot" htmlFor="">{ngodata.socialLinks.join(' , ')}</label></div> */}
                         {/* <div className="d5"><p>Social Media link2: </p><label className="borderbot" htmlFor="">Lorem ipsum </label></div> */}
                         <div className="d4"><p>Category: </p><label className="borderbot" htmlFor="">{ngodata.category}</label></div>
                     </div>
                     <div className="next">
-                        
+
                         <div className="d5"><p>Registration Number: </p><label className="borderbot" htmlFor="">{ngodata.regNo}</label></div>
                         <div className="d6"><p>Pancard Number: </p><label className="borderbot" htmlFor="">{ngodata.panNo} </label></div>
                         <div className="d4"><p>Type: </p><label className="borderbot" htmlFor="">{ngodata.typeOfNGO}</label></div>
