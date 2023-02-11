@@ -12,8 +12,7 @@ const ngoSchema = new Schema({
         unique: true
     },
     website: {
-        type: String,
-        required: true
+        type: String
     },
     phoneNumber: {
         type: Number,
