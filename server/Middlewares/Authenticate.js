@@ -3,7 +3,8 @@ const JWT_KEY = process.env.JWT_KEY;
 
 const authenticate = (req, res, next) => {
     const token = req.cookies.jwt;
-    if (token == null) return res.status(404).send("Not Authorized (No TOKEN)");
+    console.log(req)
+    if (token === null) return res.status(404).send("(No TOKEN)");
     jwt.verify(token, JWT_KEY, (err, data) => {
         if (err) return res.status(403).send("Not Authorized");
         req.data = data
@@ -14,7 +15,7 @@ const authenticate = (req, res, next) => {
 
 const authenticateNGO = (req, res, next) => {
     const token = req.cookies.jwt;
-    if (token == null) return res.status(404).send("Not Authorized (No TOKEN)");
+    if (token == null) return res.status(404).send("(No TOKEN)");
     jwt.verify(token, JWT_KEY, (err, data) => {
         if (err) return res.status(403).send("Not Authorized");
         if (!data.ngo) return res.status(403).send("Not Authorized (Not NGO)");

@@ -2,18 +2,19 @@ import React, { useState } from 'react'
 import {useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import Profile from './profile.jpeg';
+import CredContext from './context/Credentials/credContext'
 
 import { useLocation } from 'react-router-dom'
 
 
 const Ngodata = () => {
-    // const location = useLocation();
-    // const query = new URLSearchParams(location.search);
-    // const id = query.get('id');
+    const location = useLocation();
+    const query = new URLSearchParams(location.search);
+    const id = query.get('id');
 
     const [ngodata,setNgodata] = useState({})
     const details =async  ()=>{
-        const res = await fetch(`http://localhost:4000/api/ngo/63e69d113dc92d19c3ae419a`,{
+        const res = await fetch(`http://localhost:4000/api/ngo/${id}`,{
             method:"GET"
         })
         const data = await res.json();
