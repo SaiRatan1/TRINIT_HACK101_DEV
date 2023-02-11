@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 const app = express()
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
+const cors= require('cors')
 
 dotenv.config()
 app.use(cookieParser());
@@ -14,6 +15,7 @@ const DB = process.env.DB_CONNECTION_LINK
 mongoose.connect(DB).then(() => { console.log('Connection successfull') }).catch((err) => { console.log(`Couldn't connect to database`) })
 
 app.use(bodyParser.json());
+app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(express.static(path.join(__dirname,"static")))

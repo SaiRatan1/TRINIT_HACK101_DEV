@@ -12,6 +12,7 @@ import Homepage from './homepage'
 import Navbar from './navbar'
 import Userdata from './userdata'
 import Ngodata from './ngodata'
+import Group from './group'
 
 function App() {
   window.localStorage.removeItem('credentials')
@@ -20,19 +21,21 @@ function App() {
   return (
     <>
 
-      <Router>
-        <Navbar />
-        <Ngodata />
+        <Router>
+        <Navbar/>
+        
         {/* <Userdata />  */}
-        <Routes>
-
-          <Route exact path='/' element={<Homepage />}></Route>
-          <Route exact path='/usersignup' element={<Usersignup />}></Route>
-          <Route exact path='/ngosignup' element={<Ngosignup />}></Route>
-          <Route exact path='/login' element={<Login />}></Route>
-          <Route exact path='/userdata' element={<Userdata />}></Route>
-        </Routes>
-      </Router>
+            <Routes>
+                
+            <Route exact path='/' element={<Homepage />}></Route>
+            <Route exact path='/usersignup' element={<Usersignup />}></Route>
+            <Route exact path='/ngosignup' element={<Ngosignup />}></Route>
+            <Route exact path='/login' element={<Login />}></Route>
+            <Route exact path='/userdata' element={<Userdata />}></Route>
+            <Route exact path='/ngo/63e69d113dc92d19c3ae419a' element={<Ngodata/>}></Route>
+            <Route exact path='/grouppage/:id' element={<Group/>}></Route>
+            </Routes>
+        </Router>
     </>
   );
 }
