@@ -35,6 +35,7 @@ router.delete('/:id', authenticateNGO,
     }
 )
 
+
 // View Campaign
 router.get('/:id',
     async (req, res) => {
@@ -49,4 +50,5 @@ router.get('/:id',
         }
     }
 )
+
 module.exports = router

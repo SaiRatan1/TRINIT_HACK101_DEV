@@ -6,6 +6,7 @@ import {
   Route
 } from "react-router-dom";
 import Usersignup from './usersignup'
+import Webpage from './webpage'
 import Ngosignup from './ngosignup'
 import Login from './ngologin'
 import Homepage from './homepage'
@@ -35,6 +36,7 @@ function App() {
             <Route exact path='/userdata/:id' element={<Userdata />}></Route>
             <Route exact path='/ngo/:id' element={<Ngodata/>}></Route>
             <Route exact path='/grouppage/:id' element={<Group />}></Route>
+            <Route exact path='/pages/:id' element={<Webpage />}></Route>
             </Routes>
         </Router>
     </>
