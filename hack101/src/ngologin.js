@@ -8,7 +8,6 @@ const Login = () => {
     // const credentials = useContext(CredContext);
 
 
-    console.log('Login component is reloading')
     const navigate = useNavigate();
     const [user, setUser] = useState({ email: "", password: "" });
 
@@ -64,12 +63,12 @@ const Login = () => {
                     </p>
                     <hr />
                     <div className="signupbuttons">
-                    <Link to="/usersignup">
-                        <button className="but1" type="submit">Sign up as a philanthropist</button>
-                    </Link>
-                    <Link to="/ngosignup">
-                        <button className="but2" type="submit">Sign up as an NGO</button>
-                    </Link>
+                        <Link to="/usersignup">
+                            <button className="but1" type="submit">Sign up as a philanthropist</button>
+                        </Link>
+                        <Link to="/ngosignup">
+                            <button className="but2" type="submit">Sign up as an NGO</button>
+                        </Link>
                     </div>
                 </div>
                 <div name="invalidname" className="invalid" >

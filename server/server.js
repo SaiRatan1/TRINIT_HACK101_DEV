@@ -4,8 +4,10 @@ const express = require('express')
 var bodyParser = require('body-parser');
 const app = express()
 const mongoose = require('mongoose')
+const cookieParser = require('cookie-parser')
 
 dotenv.config()
+app.use(cookieParser());
 
 mongoose.set('strictQuery', true)
 const DB = process.env.DB_CONNECTION_LINK
@@ -23,3 +25,5 @@ app.use('/api/auth', require('./routes/userroutes'))
 app.listen(4000, () => {
     console.log('Server started on port 4000')
 })
+
+// TO-DO : Cookie Parser
