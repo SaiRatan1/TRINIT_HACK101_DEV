@@ -5,10 +5,11 @@ const NGO = require('../Models/NGOSchema');
 const router = express.Router()
 
 // Create Campaign
-router.post('/create', authenticateNGO,
+router.post('/create/:id',
     async (req, res) => {
         try {
-            const id = req.data.ngo.id;
+
+            const id = req.params.id;
             const campaign = new Campaign({ ...req.body, hostedBy: id })
             await campaign.save()
             const ngo = await NGO.findByIdAndUpdate(id, { $push: { campaigns: campaign._id } })

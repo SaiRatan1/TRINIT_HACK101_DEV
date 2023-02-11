@@ -27,6 +27,8 @@ export default function Ngoprofile() {
     const location = useLocation()
     const id = location.pathname.slice(7)
     // console.log(id)
+
+
     const [data,setData] = useState({})
     const fetchdata = async ()=>{
         const res = await fetch(`http://localhost:4000/api/ngo/${id}`,{
@@ -46,7 +48,6 @@ export default function Ngoprofile() {
         })
         const cres = await result.json()
         setCampdata(cres);
-        setobj1(campdata)
     }
 
 
@@ -57,8 +58,9 @@ export default function Ngoprofile() {
     },[])
 
 
-    let fun1 = () => {
-        fetch(`http://localhost:4000/api/campaign/create`, {
+    let fun1 = (e) => {
+        e.preventDefault();
+        fetch(`http://localhost:4000/api/campaign/create/${id}`, {
             method: "POST",
             body: JSON.stringify({
                 name: document.getElementById('jumb1').value,
@@ -72,7 +74,7 @@ export default function Ngoprofile() {
             }
         }).then(data => data.json()).then(data => {
             setCampdata([...campdata,data.campaign])
-            setobj1(campdata);
+            console.log(campdata)
         });
     }
 
@@ -123,24 +125,24 @@ export default function Ngoprofile() {
                                                     <h4 className="modal-title">Donations</h4>
                                                     <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
                                                 </div>
-                                                <form className='was-validated'>
+                                                <form className='was-validated' onSubmit={fun1}>
                                                     <div className="modal-body">
                                                         <div>
                                                             <h6>Enter the Campaign details:</h6>
                                                             <input type="text" id='jumb1' className="form-control" placeholder="Name" required></input>
                                                             <br />
-                                                            <textarea className="form-control" id='jumb2' rows="5" placeholder='description' name="text"></textarea>
+                                                            <textarea className="form-control" id='jumb2' rows="5" placeholder='description' type="text"></textarea>
                                                             <br />
                                                             <input type="text" id='jumb3' className="form-control" placeholder="Ending time" required></input>
                                                             <br />
-                                                            <input type="text" id='jumb4' className="form-control" placeholder="requiredfund" pattern='[0-9]+' required></input>
+                                                            <input type="number" id='jumb4' className="form-control" placeholder="requiredfund" required></input>
                                                             <br />
                                                             <input type="text" id='jumb5' className="form-control" placeholder="Paymentlink" required></input>
                                                         </div>
                                                     </div>
 
                                                     <div className="modal-footer">
-                                                        <button type="button" className="btn btn-success" data-bs-dismiss="modal" onClick={fun1}>ADD DETAIL</button>
+                                                        <button type="submit" className="btn btn-success" data-bs-dismiss="modal">ADD DETAIL</button>
                                                     </div>
                                                 </form>
 
@@ -153,8 +155,8 @@ export default function Ngoprofile() {
                                 <h5 className='text-white p-1'>CAMPAIGN DETAILS:</h5>
                                 <div className="container bg-white">
                                     <div id='detailscam'>
-                                        {obj1.map((rows)=>{
-                                            return <Ele1 nam={rows.name} endf={rows.endingTime} reqf={rows.reqFund} desc={rows.description} />
+                                        {campdata.map((rows,index)=>{
+                                            return <Ele1 key ={ index+1 } nam={rows.name} endt={rows.endingTime} reqf={rows.reqFund} desc={rows.description} />
                                         })}
                                          
                                     </div>
