@@ -28,7 +28,7 @@ router.post('/create', authenticateNGO,
 router.get('/:id', authenticate, CheckMembership,
     async (req, res) => {
         try {
-            const group = await Group.findById(req.params.id)
+            const group = await Group.findById(req.params.id).populate({ path: 'chatsId', select: 'message', populate: { path: 'userId', select: 'name' } })
             if (!group) res.status(404).send("Group Not Found");
             return res.json({ found: true, group })
         } catch (error) {
