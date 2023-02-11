@@ -43,7 +43,7 @@ router.put('/:id/join', authenticateUser,
     async (req, res) => {
         try {
             const userId = req.data.user.id;
-            const group = await Group.findByIdAndUpdate(req.params.id, { $push: { userId } })
+            const group = await Group.findByIdAndUpdate(req.params.id, { $push: { members: userId } })
             if (!group) return res.status(404).send('No such group exists')
             await User.findByIdAndUpdate(userId, { $push: { groups: req.params.id } })
             res.json({ groupId: req.params.id, joined: true })

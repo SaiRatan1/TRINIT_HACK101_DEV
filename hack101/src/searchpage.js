@@ -40,7 +40,7 @@ export default function Searchpage() {
             }
             setobj1(arr);
         });
-    }, []);
+    }, [location.state.query]);
 
 
     return (
