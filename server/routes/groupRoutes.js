@@ -12,7 +12,7 @@ router.post('/create', authenticateNGO,
         try {
             const { name } = req.body
             const admin = req.data.ngo.id;
-            const group = Group(name, admin)
+            const group = new Group({ name, admin })
             await group.save();
             const ngo = await NGO.findByIdAndUpdate(admin, { $set: { group: group._id } })
             console.log(group)

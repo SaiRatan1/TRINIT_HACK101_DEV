@@ -3,8 +3,8 @@ const JWT_KEY = process.env.JWT_KEY;
 
 const authenticate = (req, res, next) => {
     const token = req.cookies.jwt;
-    console.log(req)
-    if (token === null) return res.status(404).send("(No TOKEN)");
+    if (token == null) return res.status(404).send("(No TOKEN)");
+
     jwt.verify(token, JWT_KEY, (err, data) => {
         if (err) return res.status(403).send("Not Authorized");
         req.data = data
