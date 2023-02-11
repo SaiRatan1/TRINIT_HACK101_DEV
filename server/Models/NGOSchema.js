@@ -20,7 +20,8 @@ const ngoSchema = new Schema({
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        minLength: 4
     },
     regNo: {
         type: String,
@@ -56,6 +57,10 @@ const ngoSchema = new Schema({
     chats: [{
         type: Schema.Types.ObjectId,
         ref: 'Chat'
+    }],
+    campaigns: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Campaign'
     }]
 })
 

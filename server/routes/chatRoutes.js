@@ -14,13 +14,13 @@ router.post('/', authenticate, CheckMembership,
             let id;
             if (req.data.user) {
                 id = req.data.user.id;
-                const chat = Chat({ message, sender_type: 'User', userId: id })
+                const chat = new Chat({ message, sender_type: 'User', userId: id })
                 await chat.save();
                 await User.findByIdAndUpdate(id, { $push: { chats: chat._id } })
                 res.json({ sender: 'User', id, chatId: chat._id, chatSaved: true });
             } else {
                 id = req.data.ngo.id;
-                const chat = Chat({ message, sender_type: 'NGO', userId: id })
+                const chat = new Chat({ message, sender_type: 'NGO', userId: id })
                 await chat.save();
                 await NGO.findByIdAndUpdate(id, { $push: { chats: chat._id } })
                 res.json({ sender: 'NGO', id, chatId: chat._id, chatSaved: true });
