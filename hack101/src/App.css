@@ -176,6 +176,8 @@ a:link{
 
   .borderbot{
     border-bottom: 1px solid black;
+    margin-bottom: 15px;
+    margin-top: 0px;
   }
 
 
