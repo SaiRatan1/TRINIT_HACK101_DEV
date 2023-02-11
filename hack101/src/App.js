@@ -11,7 +11,7 @@ import Login from './ngologin'
 import Homepage from './homepage'
 import Navbar from './navbar'
 import Userdata from './userdata'
-// import Ngodata from './ngodata'
+import Ngodata from './ngodata'
 
 function App() {
   window.localStorage.removeItem('credentials')
@@ -19,21 +19,20 @@ function App() {
 
   return (
     <>
-    <CredState>
-        <Router>
-        <Navbar/>
-        <Ngodata/>
+
+      <Router>
+        <Navbar />
+        <Ngodata />
         {/* <Userdata />  */}
-            <Routes>
-                
-            <Route exact path='/' element={<Homepage />}></Route>
-            <Route exact path='/usersignup' element={<Usersignup />}></Route>
-            <Route exact path='/ngosignup' element={<Ngosignup />}></Route>
-            <Route exact path='/login' element={<Login />}></Route>
-            <Route exact path='/userdata' element={<Userdata />}></Route>
-            </Routes>
-        </Router>
-        </CredState>
+        <Routes>
+
+          <Route exact path='/' element={<Homepage />}></Route>
+          <Route exact path='/usersignup' element={<Usersignup />}></Route>
+          <Route exact path='/ngosignup' element={<Ngosignup />}></Route>
+          <Route exact path='/login' element={<Login />}></Route>
+          <Route exact path='/userdata' element={<Userdata />}></Route>
+        </Routes>
+      </Router>
     </>
   );
 }
