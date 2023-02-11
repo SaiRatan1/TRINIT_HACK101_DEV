@@ -8,9 +8,13 @@ import { useLocation } from 'react-router-dom'
 
 
 const Ngodata = () => {
+    // const location = useLocation();
+    // const query = new URLSearchParams(location.search);
+    // const id = query.get('id');
+
     const location = useLocation();
-    const query = new URLSearchParams(location.search);
-    const id = query.get('id');
+    // const query = new URLSearchParams(location.search);
+    const id = location.pathname.slice(10)
 
     const [ngodata,setNgodata] = useState({})
     const details =async  ()=>{

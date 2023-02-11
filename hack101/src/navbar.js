@@ -5,11 +5,15 @@ import { Link } from 'react-router-dom'
 import CredContext from './context/Credentials/credContext'
 
 const Navbar = () => {
+
+
     const [search, setSearch] = useState('')
     const navigate = useNavigate()
     const credentials = useContext(CredContext);
     console.log(credentials.credentials)
     console.log(window.localStorage.getItem('credentials'), ' from localstorage in navbar')
+
+    
     // if(JSON.stringify(localStorage.getItem("credentials"))!==JSON.stringify({})){
     //     credentials.setCredentials(localStorage.getItem(credentials));
     // }
@@ -76,7 +80,7 @@ const Navbar = () => {
                                 <button className="btn  btn-primary mx-2" type="submit">Profile</button></Link>}
 
 
-                                {(credentials.credentials.accountType==='NGO') && <Link to={`/ngo/${credentials.credentials.userId}`}>
+                                {(credentials.credentials.accountType==='ngo') && <Link to={`/ngo/${credentials.credentials.ngoId}`}>
                                 <button className="btn  btn-primary mx-2" type="submit">Profile</button></Link>}
                             </>}
 

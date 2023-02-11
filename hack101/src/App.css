@@ -90,6 +90,10 @@
     padding-left: 10px;
     height: 40px;
 }
+.des{
+    margin-top: 15px;
+    height: 100px;
+}
 .invalid{
     color: red;
 }
@@ -253,26 +257,35 @@ h1{
     width: 400px;
     height: 400px;
 }
-#ngoforma > input{
-    display: inline-block;
-    width: 200px;
-    height: 30px;
-}
 #ngoform > #ngoformc{
     justify-content: center;
 }
 #ngoform_drop{
     width: 200px;
-    height: 300px;
+    height: 130px;
 }
-/* #ngoform_drop_elements{
+#ngoform_drop_elements{
     /* display: none; */
-/*} */
-#ngoform_drop_elements > li:hover{
-    background-color: gray;
 }
 
+.applyhover:hover #ngoform_drop_elements{
+        visibility: visible;
+}
+
+#ngoform_drop_elements > li:hover{
+    background-color: gray;
+
+}
+
+#ngoform_drop_elements > li{
+    list-style: none;
+}
 
 .apper{
     width: 30%;
+}
+
+.cwidth{
+    margin-top: 10px;
+    width: 341px;
 }
