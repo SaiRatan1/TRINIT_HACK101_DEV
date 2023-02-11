@@ -9,7 +9,6 @@ router.get('/:query?',
             const { query } = req.query
             let arr = ['.*', query, '.*']
             const reg = new RegExp(arr.join(''))
-            console.log(reg)
             const NGOS = await NGO.find({ "name": { $regex: reg, $options: 'is' } })
             if (NGOS === undefined) return res.status(500).send("Internal Server Error")
             return res.json(NGOS)

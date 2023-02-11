@@ -82,7 +82,10 @@ router.post('/login',
 // FETCH USER DATA WITH ID
 router.get('/user/:id', authenticate,
     async (req, res) => {
+
         try {
+    console.log(req.cookies,' from routes')
+
             const { id } = req.params
             const user = await User.findById(id).select('-password');
             if (!user) {
