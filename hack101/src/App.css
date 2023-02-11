@@ -129,7 +129,7 @@ a:link{
 
 .userdata{
     display: flex;
-    height: 70vh;
+    height: 80vh;
     width: 40vw;
     /* border: 2px solid black; */
     text-align: center;
@@ -146,11 +146,11 @@ a:link{
     width: 150px;
     /* border: 2px solid red; */
     /* position: relative; */
-    top: 60px;
-    left: 300px;
+    /* top: 60px; */
+    /* left: 20px; */   
     object-fit: cover;
     margin-bottom: 138px;
-    padding-left: 70px;
+    /* padding-left: 40px; */
 }
 
 .data{
@@ -161,19 +161,68 @@ a:link{
     margin-left: 30px;
     gap: 20px;
     text-align: start;
+    flex-wrap: wrap;
+
 }
 
 
-.d1, .d2 , .d3{
+.d1, .d2 , .d3,.d4{
     width: 200px;
 }
 
-.pofrecent{
-
-    margin-top: 20px;
-}
+/* .pofrecent{
+} */
 
 
   .borderbot{
     border-bottom: 1px solid black;
+  }
+
+
+  .ngodata{
+
+    display: flex;
+    /* height: 120vh; */
+    /* width: 50vw; */
+    /* border: 2px solid black; */
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    /* margin-left: 390px; */
+    margin-top: 30px;
+    box-shadow: 10px 10px 45px rgb(136, 134, 134);
+    border-radius: 10px;
+  }
+
+  .ngod1{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    /* margin-left: 30px; */
+    /* gap: 20px; */
+    text-align: start;
+    flex-wrap: wrap;
+    width: 60vw;
+    
+  }
+
+  .ngod1>div{
+    width: 50%;
+  }
+  .four{
+    width: 50%;
+  }
+  .next{
+    width: 50%;
+  }
+
+  .des1>div{
+    width: 80%;
+  }
+
+  .des2>div{
+    width: 80%;
   }

@@ -2,10 +2,10 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 
-// import CredContext from '../context/Credentials/credContext'
+import CredContext from '../context/Credentials/credContext'
 
 const Login = () => {
-    // const credentials = useContext(CredContext);
+    const credentials = useContext(CredContext);
 
 
     console.log('Login component is reloading')

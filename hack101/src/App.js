@@ -11,6 +11,7 @@ import Login from './ngologin'
 import Homepage from './homepage'
 import Navbar from './navbar'
 import Userdata from './userdata'
+import Ngodata from './ngodata'
 
 function App() {
 
@@ -20,7 +21,8 @@ function App() {
     <>
         <Router>
         <Navbar/>
-        <Userdata />
+        <Ngodata/>
+        {/* <Userdata />  */}
             <Routes>
                 
             <Route path='/' element={<Homepage />}></Route>
