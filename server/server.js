@@ -21,6 +21,8 @@ app.use('/', require(path.join(__dirname, 'routes/ngoroutes.js')))
 
 app.use('/api/ngo', require('./routes/ngoroutes'))
 app.use('/api/auth', require('./routes/userroutes'))
+app.use('/api/group', require('./routes/groupRoutes'))
+app.use('/api/chat', require('./routes/chatRoutes'))
 
 app.listen(4000, () => {
     console.log('Server started on port 4000')

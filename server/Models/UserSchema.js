@@ -19,7 +19,15 @@ const userSchema = new Schema({
     },
     paymentUPI: {
         type: String,
-    }
+    },
+    groups: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Group'
+    }],
+    chats: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Chat'
+    }]
 })
 
 const User = mongoose.model('User', userSchema);
