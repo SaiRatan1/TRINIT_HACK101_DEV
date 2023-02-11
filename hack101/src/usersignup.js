@@ -5,19 +5,22 @@ import { useNavigate } from 'react-router-dom'
 const Usersignup = () => {
 
     const navigate = useNavigate();
-    const [user, setUser] = useState({ name: "", email: "", phone: "", password: "" ,confirmpassword:""});
+    const [user, setUser] = useState({ name: "", email: "", phone: "", prefngo:"",password: "" ,confirmpassword:""});
+
+
     const handleSubmit = async (e) => {
         let res;
-        e.preventDefault();
-        const { name, email,phone,password } = user;
-        res = await fetch('/api/auth/create', {
+        // e.preventDefault();
+        const { name, email,phone,prefngo,password } = user;
+        // console.log({ name,email,phoneNumber:phone,prefferedNGO:prefngo, password })
+        res = await fetch('http://localhost:4000/api/auth/create', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
                 'Accept': 'application/json'
             },
             body: JSON.stringify(
-                { name,email,phoneNumber:phone, password }
+                { name,email,phoneNumber:phone,preferredNGO:prefngo, password }
             )
         })
 
@@ -36,7 +39,7 @@ const Usersignup = () => {
     const form = document.getElementById("signupsubmit");
 
     function validate(e) {
-        // e.preventDefault();
+        e.preventDefault();
         console.log("About to call validatesignup function")
         if (validatesignup()) {
             // form.submit()
@@ -93,6 +96,8 @@ const Usersignup = () => {
                             value={user.email} onChange={(e) => { setUser({ ...user, email: e.target.value }) }} /><br/>
                         <input type="Phone" className="phone" name="fphone2" placeholder="Phone" required
                             value={user.phone} onChange={(e) => { setUser({ ...user, phone: e.target.value }) }} /><br/>
+                        <input type="text" className="prefngo" name="prefngo" placeholder="Preffered NGO" required
+                            value={user.prefngo} onChange={(e) => { setUser({ ...user, prefngo: e.target.value }) }} /><br/>
                         <input type="password" className="pass" name="fpass2" placeholder="Password" required
                             value={user.password} onChange={(e) => { setUser({ ...user, password: e.target.value }) }} /><br/>
                         <input type="password" className="pass" name="fpass3" placeholder="Confirm password" required 
