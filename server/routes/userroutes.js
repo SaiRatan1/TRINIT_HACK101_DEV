@@ -5,7 +5,7 @@ const NGO = require('../Models/NGOSchema')
 const bcrypt = require('bcrypt')
 var jwt = require('jsonwebtoken');
 const JWT_KEY = process.env.JWT_KEY;
-const authenticate = require('../Middlewares/Authenticate')
+const { authenticate } = require('../Middlewares/Authenticate')
 
 const maxAge = 24 * 60 * 60
 // CREATE USER ACCOUNT
@@ -55,7 +55,7 @@ router.post('/login',
                 }
                 const authtoken = jwt.sign(data, JWT_KEY);
                 res.cookie('jwt', authtoken, { httpOnly: true, maxAge: maxAge * 1000 })
-                res.json({ success, authtoken, accountType: 'ngo' })
+                res.json({ success, ngoId: ngo.id, accountType: 'ngo' })
             }
             const passwordCompare = await bcrypt.compare(password, user.password);
             if (!passwordCompare) {
@@ -70,7 +70,7 @@ router.post('/login',
             }
             const authtoken = jwt.sign(data, JWT_KEY);
             res.cookie('jwt', authtoken, { httpOnly: true, maxAge: maxAge * 1000 })
-            res.json({ success, authtoken, accountType: 'user' })
+            res.json({ success, userId: user.id, accountType: 'user' })
 
         } catch (error) {
             console.error(error.message);

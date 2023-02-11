@@ -49,7 +49,15 @@ const ngoSchema = new Schema({
     paymentUPI: {
         type: String,
         required: true
-    }
+    },
+    group: {
+        type: Schema.Types.ObjectId,
+        ref: 'Group'
+    },
+    chats: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Chat'
+    }]
 })
 
 const NGO = mongoose.model('NGO', ngoSchema);
