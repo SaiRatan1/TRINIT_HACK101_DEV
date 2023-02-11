@@ -32,8 +32,8 @@ export default function Searchpage() {
     let [obj1, setobj1] = useState([]);
     const location = useLocation()
     useEffect(() => {
-        fetch(`http://localhost:4000/api/search/?query=${location.state.query}`).then(data => data.json()).then(data => {
-            let rows = data;
+        fetch(`http://localhost:4000/api/search/?q=${location.state.query}`).then(data => data.json()).then(data => {
+            let rows = data.NGOS;
             let arr = [];
             for (let i = 0; i < rows.length; i++) {
                 arr.push(<Ele1 key={i} namer={rows[i].name} des={rows[i].description} cat={rows[i].category}></Ele1>);
