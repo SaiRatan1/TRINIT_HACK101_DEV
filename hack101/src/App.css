@@ -289,3 +289,29 @@ h1{
     margin-top: 10px;
     width: 341px;
 }
+
+
+#backput{
+    width: 200px;
+    height:200px;
+    background-color:bisque;
+    border-radius: 110px;
+    transform: translate(0px,100px);   
+}
+#descap{
+    height: 380px;
+}
+#detailscam{
+    display: flex;
+    flex-wrap: wrap;
+    height:340px;
+    overflow:auto;
+    justify-content:space-between;
+}
+#detailscam > div{
+    width: 48%;
+}
+#pubname{
+    font-size:2rem;
+    
+}

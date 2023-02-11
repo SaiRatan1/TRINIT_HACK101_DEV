@@ -14,7 +14,7 @@ const Ngodata = () => {
 
     const location = useLocation();
     // const query = new URLSearchParams(location.search);
-    const id = location.pathname.slice(10)
+    const id = location.pathname.slice(4)
 
     const [ngodata,setNgodata] = useState({})
     const details =async  ()=>{

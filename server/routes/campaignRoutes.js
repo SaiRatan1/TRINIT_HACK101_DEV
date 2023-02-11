@@ -32,4 +32,19 @@ router.delete('/:id', authenticateNGO,
         }
     }
 )
+
+
+router.get('/:id',async(req,res)=>{
+    try {
+        const { id } = req.params
+        const campaign = await Campaign.findById(id);
+        if (!campaign) return res.status(404).send("No Camapign found")
+        res.json(campaign)
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
+    }
+})
+
+
 module.exports = router

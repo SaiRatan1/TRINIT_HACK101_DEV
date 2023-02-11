@@ -1,7 +1,7 @@
 import React from 'react';
 // import ReactDOM from 'react-dom/client';
 import { useState, useEffect } from "react";
-import { useLocation } from 'react-router-dom';
+import { useLocation,Link } from 'react-router-dom';
 
 function Ele1(props) {
     return (
@@ -18,7 +18,7 @@ function Ele1(props) {
                                 </div>
                             </div>
                             <div className="col-4">
-                                <button className="btn btn-success">VISIT</button>
+                                <Link to={`/pages/${props.id}`}><button className="btn btn-success">VISIT</button></Link>
                             </div>
                         </div>
                     </div>
@@ -36,11 +36,11 @@ export default function Searchpage() {
             let rows = data.NGOS;
             let arr = [];
             for (let i = 0; i < rows.length; i++) {
-                arr.push(<Ele1 key={i} namer={rows[i].name} des={rows[i].description} cat={rows[i].category}></Ele1>);
+                arr.push(<Ele1 key={i} namer={rows[i].name} des={rows[i].description} cat={rows[i].category} id={rows[i]._id}></Ele1>);
             }
             setobj1(arr);
         });
-    }, []);
+    }, [location.state.query]);
 
 
     return (
