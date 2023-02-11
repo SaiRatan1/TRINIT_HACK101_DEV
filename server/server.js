@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 const app = express()
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
-const cors= require('cors')
+const cors = require('cors')
 
 dotenv.config()
 app.use(cookieParser());
@@ -25,6 +25,7 @@ app.use('/api/ngo', require('./routes/ngoroutes'))
 app.use('/api/auth', require('./routes/userroutes'))
 app.use('/api/group', require('./routes/groupRoutes'))
 app.use('/api/chat', require('./routes/chatRoutes'))
+app.use('/api/search', require('./routes/searchRoutes'))
 
 app.listen(4000, () => {
     console.log('Server started on port 4000')
