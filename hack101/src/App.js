@@ -35,7 +35,7 @@ function App() {
             <Route exact path='/login' element={<Login />}></Route>
             <Route exact path='/userdata/:id' element={<Userdata />}></Route>
             <Route exact path='/ngo/:id' element={<Ngodata/>}></Route>
-            <Route exact path='/grouppage/:id' element={<Group />}></Route>
+            <Route exact path='/groupchat/:id' element={<Group />}></Route>
             <Route exact path='/pages/:id' element={<Webpage />}></Route>
             </Routes>
         </Router>

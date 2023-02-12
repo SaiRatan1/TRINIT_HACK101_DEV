@@ -67,8 +67,6 @@ const Ngodata = () => {
                             <p className='pofrecent'>{ngodata.description}</p></div>
                     </div>
                     <div className="des2">
-                        <div className="d4"><p>Recent Activity:</p>
-                            <p className='pofrecent'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea optio velit aliquid dolor aliquam illo quis numquam eligendi sed cumque.</p></div>
                     </div>
                 </div>
                 <Link to="/Donation">

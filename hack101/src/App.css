@@ -28,7 +28,7 @@
     justify-content: center;
     flex-direction: column;
     margin: auto;
-    margin-top: 84px;
+    margin-top: 64px;
 }
 
 .phone {
@@ -171,11 +171,6 @@ a:link{
     padding-left: 30px;
 }
 
-
-/* .pofrecent{
-} */
-
-
   .borderbot{
     border-bottom: 1px solid black;
     margin-bottom: 15px;
@@ -295,11 +290,12 @@ h1{
     width: 200px;
     height:200px;
     background-color:bisque;
+    background-image: url("./i1.jpeg");
     border-radius: 110px;
     transform: translate(0px,100px);   
 }
 #descap{
-    height: 380px;
+    height: 480px;
 }
 #detailscam{
     display: flex;
@@ -312,6 +308,37 @@ h1{
     width: 48%;
 }
 #pubname{
-    font-size:2rem;
-    
+    color: white;
+    font-size: 2rem;
+}
+
+.checkw{
+    width: 920px;
+}
+
+.homeflex{
+    /* display: flex; */
+
+}
+
+.addpadding{
+    margin-left: 50px;
+    margin-top: 30px;
+}
+.con{
+    display: flex;
+
+}
+
+.row{
+    margin-left: 30px;
+}
+
+.col-4 h3{
+    position: relative;
+    left: 100px;
+}
+
+.group{
+    text-align: center;
 }
