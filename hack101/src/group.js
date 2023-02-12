@@ -30,6 +30,7 @@ class ChatSystem extends React.Component {
     render() {
         return (
             <>
+            <h2 className='group my-1'>Group Chat</h2>
                 <div id='chatbody'>
                     <div className="container bg-dark text-white">
                         <br />

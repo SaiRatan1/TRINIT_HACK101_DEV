@@ -84,7 +84,7 @@ export default function Ngoprofile() {
                 <br />
                 <div className="container bg-success text-dark">
                     <div id='backput'>
-                        <img src="" alt="" />
+                        <img src="./i1.jpeg" alt="" />
                     </div>
                     <span id='pubname'>{data.name}</span>
             
@@ -100,7 +100,7 @@ export default function Ngoprofile() {
                                 <div id="descap">
                                     <br />
                                     <button className="btn m-1 btn-success" data-bs-toggle="modal" data-bs-target="#myModal">ADD CAMPAIGN DETAILS</button><br />
-                                    <button className="btn m-1 btn-primary">JOIN GROUP</button>
+                                    <Link to={`/groupchat/${data.group}`}><button className="btn m-1 btn-primary">JOIN GROUP</button></Link>
                                     <br />
                                     <Link to={`/ngo/${data._id}`}><button className="btn m-1 btn-info">INFO</button></Link>
                                     <br />

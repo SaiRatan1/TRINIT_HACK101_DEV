@@ -56,7 +56,7 @@ export default class Ngosignup extends React.Component {
     render() {
         return (
             <div>
-                <h1>Ngo form for sign up</h1>
+                <h1 className='my-3'>Sign Up as an NGO</h1>
                 <div className="c2">
                     <form id="signupsubmit" onSubmit={this.fun1} >
                         <input type="text" className="name" id="form1" placeholder='Name' /><br />
@@ -77,10 +77,11 @@ export default class Ngosignup extends React.Component {
 
                         <select className="form-select cwidth" aria-label="Default select example">
                             <option id='form10' selected>Select the type of NGO</option>
-                            <option value="1">Ango</option>
-                            <option value="2">Bngo</option>
-                            <option value="3">Cngo</option>
-                            <option value="3">Dngo</option>
+                            <option value="1">BINGO</option>
+                            <option value="2">INGO</option>
+                            <option value="3">ENGO</option>
+                            <option value="4">RINGO</option>
+                            <option value="5">CSO</option>
                         </select>
 
 

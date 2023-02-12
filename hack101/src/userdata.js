@@ -46,8 +46,6 @@ const Userdata = () => {
                     <div className="d2"><p>Email: </p><label className="borderbot" htmlFor="">{userdata.email}</label></div>
                     <div className="d3"><p>Phone: </p><label className="borderbot" htmlFor="">{userdata.phoneNumber}</label></div>
                     <div className="d4"><p>Preffered NGO: </p><label className="borderbot" htmlFor="">{userdata.preferredNGO}</label></div>
-                    <div className="d4"><p>Recent Activity:</p>
-                        <p className='pofrecent'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea optio velit aliquid dolor aliquam illo quis numquam eligendi sed cumque.</p></div>
                 </div>
 
             </div>
