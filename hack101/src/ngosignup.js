@@ -50,7 +50,6 @@ export default class Ngosignup extends React.Component {
             }
 
             );
-            // navigate('/login')
         }
     }
     render() {
@@ -85,15 +84,6 @@ export default class Ngosignup extends React.Component {
                         </select>
 
 
-
-                        {/* <div id='ngoform_drop'>
-                            <span className='cat'>Category</span> <div type="text" className="name applyhover" id='form10' placeholder='type_of_ngo'>Ango</div>
-                            <div id='ngoform_drop_elements'>
-                                <Ele1 txt='Ango' />
-                                <Ele1 txt='Bngo' />
-                                <Ele1 txt='Cngo' />
-                                <Ele1 txt='Dngo' />
-                            </div> */}
                         <br />
                         <button type='submit' className='submit '>submit</button>
                     </form>
